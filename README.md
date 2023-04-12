@@ -1,39 +1,25 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## Sample Usage
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Import the package into your code
 
 ```dart
-const like = 'sample';
+import 'package:place_picker/place_picker.dart';
 ```
 
-## Additional information
+Create a method like below, A `LocationResult` will be returned
+with the name and lat/lng of the selected place. You can then handle the result in any way you want.
+Pass in an optional `LatLng displayLocation` to display that location instead. This is useful when you want the map
+to display the previously selected location.
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+void showPlacePicker() async {
+    LocationResult result = await Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MapLocationPicker(
+                          "ADD-API-KEY-HERE",
+                          languageCode: "en_us",
+                          autoCompleteRegion: "in",
+                          autoCompleteComponents: "country:in",
+                          autoTheme: true,
+                        )));
+}
+```
