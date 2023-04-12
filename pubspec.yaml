@@ -1,8 +1,8 @@
-name: google_map_location_picker
+name: google_map_place_picker
 description: Flutter Package for Google Map Place Picker
 version: 0.0.1
-homepage: https://github.com/pareshpawar/google_map_location_picker
-repository: https://github.com/pareshpawar/google_map_location_picker
+homepage: https://github.com/pareshpawar/google_map_place_picker
+repository: https://github.com/pareshpawar/google_map_place_picker
 
 environment:
   sdk: ">=2.19.3 <3.0.0"

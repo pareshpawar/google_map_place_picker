@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_map_location_picker/google_map_location_picker.dart';
+import 'package:google_map_place_picker/google_map_place_picker.dart';
 
 void main() {
   runApp(
