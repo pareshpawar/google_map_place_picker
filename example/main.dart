@@ -29,15 +29,14 @@ class _MyAppState extends State<MyApp> {
         child: ElevatedButton(
           child: const Text("Pick a location"),
           onPressed: () async {
-            LocationResult? result =
-                await Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MapLocationPicker(
-                          "ADD-API-KEY-HERE",
-                          languageCode: "en_us",
-                          autoCompleteRegion: "in",
-                          autoCompleteComponents: "country:in",
-                          autoTheme: true,
-                        )));
+            LocationResult? result = await Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => MapLocationPicker("ADD-API-KEY-HERE",
+                        languageCode: "en_us",
+                        autoCompleteRegion: "in",
+                        autoCompleteComponents: "country:in",
+                        autoTheme: true,
+                        pinColor: Colors.amber[900])));
 
             // Handle the result in your way
             print(result?.formattedAddress);

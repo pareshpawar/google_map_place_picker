@@ -35,6 +35,7 @@ class MapLocationPicker extends StatefulWidget {
 
   /// default is false; when set true it will chanage map theme according to system theme
   bool autoTheme;
+  Color pinColor;
 
   /// Location to be displayed when screen is showed. If this is set or not null, the
   /// map does not pan to the user's current location.
@@ -52,6 +53,7 @@ class MapLocationPicker extends StatefulWidget {
       this.autoCompleteRegion = '',
       this.autoCompleteComponents = '',
       this.autoTheme = false,
+      this.pinColor = Colors.orange,
       this.displayLocation,
       LatLng? defaultLocation}) {
     if (defaultLocation != null) {
@@ -241,11 +243,9 @@ class PlacePickerState extends State<MapLocationPicker> {
                             alignment: AlignmentDirectional.bottomCenter,
                             child: Center(
                               child: Container(
-                                padding: EdgeInsets.only(bottom: 50),
-                                child: Image.asset(
-                                  'assets/pin.png',
-                                  height: 50,
-                                ),
+                                padding: EdgeInsets.only(bottom: 38),
+                                child: Icon(Icons.location_on,
+                                    size: 45, color: widget.pinColor),
                               ),
                             ),
                           ),
@@ -455,7 +455,7 @@ class PlacePickerState extends State<MapLocationPicker> {
 
       final location = responseJson['result']['geometry']['location'];
       if (mapController.isCompleted) {
-        moveToLocation(LatLng(location['lat'], location['lng']));
+        moveToNearbyLocation(LatLng(location['lat'], location['lng']));
       }
     } catch (e) {
       print(e);
